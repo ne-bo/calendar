@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" style="alignment: left">
+<h1>{% block title %} Remove a reservation {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group" style="alignment: left">
+        <label for="email">Email</label>
+        <input type="text" name="email" style="width: auto"
+               placeholder="Your email" class="form-control"
+               value="{{ request.form['email'] }}">
+        <label for="start">Reservation start</label>
+        <input type="text" name="start" style="width: auto"
+               placeholder="YYYY-mm-dd-HH-MM" class="form-control"
+               value="{{ request.form['start'] }}">
+        <label for="end">Reservation end</label>
+        <input type="text" name="end" style="width: auto"
+               placeholder="YYYY-mm-dd-HH-MM" class="form-control"
+               value="{{ request.form['end'] }}">
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}
+</div>
+
