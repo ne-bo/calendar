@@ -7,9 +7,7 @@ from datetime import datetime
 class CalendarManager:
     def __init__(self):
         self.name = 'My calendar'
-        if os.path.exists('my-test.db'):
-            self.database = sl.connect('my-test.db')
-        else:
+        if not os.path.exists('my-test.db'):
             con = sl.connect('my-test.db')
             with con:
                 con.execute("""
@@ -33,6 +31,7 @@ class CalendarManager:
                         email TEXT
                     );
                 """)
+        self.database = sl.connect('my-test.db')
         self.format = "%Y-%m-%d-%H-%M"
         self.database.row_factory = sqlite3.Row
 
